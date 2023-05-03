@@ -14,7 +14,8 @@ moongoose
   .connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: true
+    useFindAndModify: true,
+    useUnifiedTopology: true
   })
   .then(() => console.log('Database Connected Successfully...'));
 

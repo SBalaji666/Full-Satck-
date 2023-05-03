@@ -22,6 +22,9 @@ exports.getAllTours = async (req, res) => {
     // { difficulty: 'easy', duration: { $gte: '5' } }
     // { difficulty: 'easy', duration: { gte: '5' } }
 
+    // Sorting
+    // const
+
     const query = Tour.find(queryObj);
 
     // EXECUTE QUERY
