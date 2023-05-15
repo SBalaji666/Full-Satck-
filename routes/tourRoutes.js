@@ -6,7 +6,10 @@ const {
   createTour,
   getTour,
   updateTour,
-  deleteTour
+  deleteTour,
+  aliasTopTour,
+  getTourStats,
+  getMonthlyPlan
 } = tourController;
 
 // CREATING COMBINED ROUTER
@@ -17,6 +20,12 @@ const router = express.Router();
 // Create Check Body Middlewear
 
 // TOURS ROUTES
+router.route('/top-5-cheap').get(aliasTopTour, getAllTours);
+
+router.route('/tour-stats').get(getTourStats);
+
+router.route('/monthly-plan/:year').get(getMonthlyPlan);
+
 router
   .route('/')
   .get(getAllTours)

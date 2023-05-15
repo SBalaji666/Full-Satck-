@@ -1,0 +1,71 @@
+// Middleware
+
+Document
+Query
+Aggregate
+Model
+
+
+//Document Middleware (pre/post)
+Which is can act currently processed document
+
+//pre middlewear(runs before an actual event)
+(ex) save event
+     create event
+     (not on insertMany)
+
+*Each middleware function in a pre save middlewares has access to the next() method
+
+pre save hook or middlewear
+post save hook or middlewear
+
+Multiple hooks can be addded if added next needs to be called on middlewear.
+
+
+////////////////////////////////////////////////
+
+//Query Middlewear(pre/post)
+Allows us to run funtions before (or) after the certain query is executed.
+
+(ex) find
+
+//prefined hook
+
+//this keyword point to the curent query not on the current document
+
+////////////////////////////////////////////////
+
+
+//Aggregation Middlewear (pre/post)
+
+(ex) aggregate event
+
+//this = current aggregation object
+
+Allows us to do hooks before or after the aggregation happens
+
+
+//Data Validation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
