@@ -30,7 +30,7 @@ exports.getAllTours = async (req, res) => {
     // { difficulty: 'easy', duration: { $gte: '5' } }
     // { difficulty: 'easy', duration: { gte: '5' } }
 
-    const query = Tour.find(queryObj);
+    // const query = Tour.find(queryObj);
 
     // EXECUTE QUERY
     const features = new APIFeatures(Tour.find(), req.query)
