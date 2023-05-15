@@ -13,6 +13,25 @@ exports.aliasTopTour = (req, res, next) => {
 
 exports.getAllTours = async (req, res) => {
   try {
+    // BUILD QUERY
+    console.log(req.query);
+    // Filtering
+    let queryObj = { ...req.query };
+    const excludeFields = ['page', 'sort', 'limit', 'fields'];
+    excludeFields.forEach(el => delete queryObj[el]);
+
+    // ADVANCED FILTERING
+    const queryStr = JSON.stringify(queryObj).replace(
+      /\b(gte|gt|lte|lt)\b/g,
+      match => `$${match}`
+    );
+    queryObj = JSON.parse(queryStr);
+
+    // { difficulty: 'easy', duration: { $gte: '5' } }
+    // { difficulty: 'easy', duration: { gte: '5' } }
+
+    const query = Tour.find(queryObj);
+
     // EXECUTE QUERY
     const features = new APIFeatures(Tour.find(), req.query)
       .filter()
